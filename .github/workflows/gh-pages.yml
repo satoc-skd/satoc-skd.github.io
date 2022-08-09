@@ -12,11 +12,18 @@ jobs:
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
     steps:
-      - name: list-2
+      - name: list-1
         run: ls -la
 
       - name: checkout
         uses: actions/checkout@v2
 
+      - name: copies
+        run: |
+          mkdir out
+          cp index.html ./out
+
       - name: list-2
         run: ls -la
+
+
