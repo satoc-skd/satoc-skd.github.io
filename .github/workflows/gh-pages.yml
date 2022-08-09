@@ -26,4 +26,10 @@ jobs:
       - name: list-2
         run: ls -la
 
-
+      - name: deploy
+        uses: satoc-skd/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+          
